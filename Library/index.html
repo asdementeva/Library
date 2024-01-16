@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+      <div class="container">
+        <section class="navigation">
+            <div class="logo">
+                <h1 class="logo-text">Brooklyn Public Library</h1>
+            </div>
+          <div class="nav-profile-container">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
+                    <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                    <li class="nav-item"><a href="#library-cards" class="nav-link">Library Card</a></li>               
+                </ul>
+            </nav>
+                       
+            <div class="profile-icon active" title="Полное имя пользователя">
+                <img class="img-profile-icon" id="imgProfileIcon" src="./assets/images/Subtract.svg" alt="Profile Icon">
+            </div>
+            <div class="burger-menu" id="burgerButton">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div> 
+          </div>
+
+          
+          <div class="modal-top" id="burgerModalIcon">
+                
+            <div class="close-icon" id="closeBurgerModal">
+              <div class="line-close horizontal"></div>
+              <div class="line-close vertical"></div>
+            </div>
+          </div>
+          <div class="modal" id="burgerModal">
+            
+            
+            <nav class="modal-nav">
+              <ul class="modal-nav-list">
+                <li class="modal-nav-item"><a href="#about" class="modal-nav-link">About</a></li>
+                <li class="modal-nav-item"><a href="#favorites" class="modal-nav-link">Favorites</a></li>
+                <li class="modal-nav-item"><a href="#coffee-shop" class="modal-nav-link">Coffee shop</a></li>
+                <li class="modal-nav-item"><a href="#contacts" class="modal-nav-link">Contacts</a></li>
+                <li class="modal-nav-item"><a href="#library-cards" class="modal-nav-link">Library Card</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="profile-menu-no-auth profile-menu-trigger">
+            
+            <h3 class="profile-title">Profile</h3>
+            <hr class="profile-divider">
+            <button class="profile-button LogIn" id="loginButton">Log In</button>
+            <button class="profile-button" id="registerButton">Register</button>
+            
+          </div>
+
+          <div class="profile-menu-auth">
+            
+            <h3 class="profile-title profile-card-number">Profile</h3>
+            <hr class="profile-divider">
+            <button class="profile-button MyProfile" id="MyProfile">My profile</button>
+            <button class="profile-button" id="logOutButton">Log Out</button>
+            
+          </div>
+
+          <div class="modal-overlay" id="modalOverlay"></div>
+
+          <div class="modal-register" id="registerModal">
+            <div class="close-icon-register" id="closeRegisterModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                    <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+                    <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+                </svg>
+            </div>
+            <h3 class="register-title">Register</h3>
+            <p class="register-item">First name</p>
+            <input type="text" id="FirstNameInput">
+            <p class="register-item">Last name</p>
+            <input type="text" id="LastNameInput">
+            <p class="register-item">E-mail</p>
+            <input type="email" id="emailInput"  required>
+            <p class="register-item">Password</p>
+            <input type="password" id="passwordInput">
+            <button class="register-button" id="registerButton3">Sign Up</button>
+            <div class="register-bottom" >
+                <p class="register-text">Already have an account?</p>
+                <button class="register-login-button" id="registerLoginButton">Login</button>
+            </div>
+          </div>
+          
+          <div class="login-modal" id="loginModal">
+                <div class="close-icon-login" id="closeRegisterModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+                        <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+                    </svg>
+                </div>
+            <div class="login-title ">Login</div>
+            <p class="login-item">E-mail or readers card</p>
+            <input type="text" id="emailInputOrCurdNumber"  required>
+            <p class="login-item">Password</p>
+            <input type="password" id="passwordInputLogin">
+            <button class="login-button" id="loginButton3">Log In</button>
+            <div class="login-bottom" >
+                <p class="login-text">Don’t have an account?</p>
+                <button class="login-register-button" id="loginRegisterButton">Register</button>
+            </div>
+          </div>
+
+          <div class="modal-profile" id="modalProfile">
+            <div class="profile-icon-name-wrapper">
+                <div class="modal-profile-icon" id="modalProfileIcon">
+                    <img class="img-profile-icon" src="./assets/images/Subtract.svg" alt="Profile Icon">
+                </div>
+                <p class="prifile-name">John Doe</p>
+            </div>
+            <div class="profile-information-wrapper">
+                <h3 class="myprofile">My profile</h3>
+                <div class="close-icon-modal-profile" id="closeProfileModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+                        <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+                    </svg>
+                </div>
+                <div class="cards-profile">
+                    <div class="cards-info visits-info">
+                        <p class="card-profile-text">visits</p>
+                        <div class="card-profile-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76143 15.5 5C15.5 2.23857 13.2614 0 10.5 0C7.73857 0 5.5 2.23857 5.5 5C5.5 7.76143 7.73857 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5H0.5C0.5 18.3478 1.55357 15.8043 3.42894 13.9289C5.30429 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                            </svg>
+                        </div>
+                        <p class="card-frofile-counter visits-counter" id="visitsCounter">23</p>
+                    </div>
+                    <div class="cards-info bonuses-info">
+                        <p class="card-profile-text">bonuses</p>
+                        <div class="card-profile-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                            </svg>
+                        </div>
+                        <p class="card-frofile-counter bonuses-counter">1240</p>
+                    </div>
+                    <div class="cards-info book-info">
+                        <p class="card-profile-text">Books</p>
+                        <div class="card-profile-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                <rect width="20" height="21" fill="#BB945F"/>
+                                <rect x="2" width="1" height="19" fill="#826844"/>
+                                <rect x="1" width="1" height="21" fill="white"/>
+                            </svg>
+                        </div>
+                        <p class="card-frofile-counter book-counter" id="booksCounter">2</p>
+                    </div>
+                </div>
+                <div class="rented-books" id="rentedBooks">
+                    <h4 class="rented-title">Rented books</h4>
+                    <div class="rented-books-lists">
+                        <ul class="rented-items">
+                            <li class="rented-item">The Last Queen, Clive Irving</li>
+                            <li class="rented-item">Dominicana, Angie Cruz</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-number-wrapper">
+                    <p class="card-number-text">Card number</p>
+                    <p class="card-number-number">F00234030</p>
+                    <div class="card-number-icon-copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                            <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+                            <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+        </section>
+        
+        <section class="welcome-section">
+          <div class="welcome-content">
+          <div class="welcom-overlay">
+            <div class="welcome-container">
+                <h2 class="welcome-title">Welcome<br>to the Brooklyn<br>Library</h2>
+            </div>
+          </div>
+          </div>
+        </section>
+      </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="about-section" id="about">
+                <div class="about-content">
+                    <h2 class="about-title">About</h2>
+                    <hr class="about-divider">
+                    <p class="about-discription">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
+                  <div class="about-carousel">
+
+                    <div class="about-images">
+                        <img src="./assets/images/image1.png" alt="Image 1" class="about-image" data-index="0">
+                        <img src="./assets/images/image2.png" alt="Image 2" class="about-image" data-index="1">
+                        <img src="./assets/images/image3.png" alt="Image 3" class="about-image" data-index="2">
+                        <img src="./assets/images/image4.png" alt="Image 4" class="about-image" data-index="3">
+                        <img src="./assets/images/image5.png" alt="Image 5" class="about-image" data-index="4">
+
+                    </div>
+
+                    
+                    <div class="slider-controls">
+                        <button class="slider-control prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                <path d="M15 7.5L9 12.5L15 17.5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="slider-control next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                <path d="M9 17.5L15 12.5L9 7.5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="about-points">
+                        <div class="about-point"></div>
+                        <div class="about-point"></div>
+                        <div class="about-point"></div>
+                        <div class="about-point"></div>
+                        <div class="about-point"></div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <section class="favorites-section" id="favorites">
+                <div class="favorites-content">
+                    <h2 class="favorites-title">Favorites</h2>
+                    <hr class="favorites-divider">
+                    <p class="favorites-subtitle">Pick favorites of season</p>
+                    
+                    <div class="radio-buttons sticky-buttons">
+                        <label>
+                            <input type="radio" name="season"
+                                   value="winter" checked>
+                            <span>Winter</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="season"
+                                   value="spring">
+                            <span>Spring</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="season"
+                                   value="summer">
+                            <span>Summer</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="season"
+                                   value="autumn">
+                            <span>Autumn</span>
+                        </label>
+                    </div>
+                    
+                
+                    
+
+                    <div class="book-list winter visible">
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="1">The Book Eaters</p>
+                            <div class="book-author" data-author-name-id="1">By Sunyi Dean</div>
+                            <p class="book-description">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                            <button class="buy-button" data-button-id="1">Buy</button>
+                            <img src="./assets/images/book1.png" alt="Book Image" class="book-image">
+                        </div>
+                    
+                    
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="2">Cackle </p>
+                            <div class="book-author" data-author-name-id="2">By Rachel Harrison</div>
+                            <p class="book-description">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                            <button class="buy-button" data-button-id="2">Buy</button>
+                            <img src="./assets/images/book2.png" alt="Book Image" class="book-image">
+                        </div>
+                    
+                    
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="3">Dante: Poet of the Secular World</p>
+                            <div class="book-author" data-author-name-id="3">By Erich Auerbach</div>
+                            <p class="book-description">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+                            <button class="buy-button" data-button-id="3">Buy</button>
+                            <img src="./assets/images/book3.png" alt="Book Image" class="book-image">
+                        </div>
+                    
+                    
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="4">The Last Queen</p>
+                            <div class="book-author" data-author-name-id="4">By Clive Irving</div>
+                            <p class="book-description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                            <button class="buy-button" data-button-id="4">Buy</button>
+                            <img src="./assets/images/book4.png" alt="Book Image" class="book-image">
+                        </div>
+                    </div>
+
+                    <div class="book-list spring hidden">
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="5">The Body</p>
+                            <div class="book-author" data-author-name-id="5">By Stephen King</div>
+                            <p class="book-description">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</p>
+                            <button class="buy-button" data-button-id="5">Buy</button>
+                            <img src="./assets/images/book5.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="6">Carry: A Memoir of Survival on Stolen Land</p>
+                            <div class="book-author" data-author-name-id="6">By Toni Jenson</div>
+                            <p class="book-description">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
+                            <button class="buy-button" data-button-id="6">Buy</button>
+                            <img src="./assets/images/book6.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="7">Days of Distraction</p>
+                            <div class="book-author" data-author-name-id="7">By Alexandra Chang</div>
+                            <p class="book-description">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</p>
+                            <button class="buy-button" data-button-id="7">Buy</button>
+                            <img src="./assets/images/book7.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="8">Dominicana</p>
+                            <div class="book-author" data-author-name-id="8">By Angie Cruz</div>
+                            <p class="book-description">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
+                            <button class="buy-button" data-button-id="8">Buy</button>
+                            <img src="./assets/images/book8.png" alt="Book Image" class="book-image">
+                        </div>
+                    </div>
+
+                    <div class="book-list summer hidden">
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="9">Crude: A Memoir</p>
+                            <div class="book-author" data-author-name-id="9">By Pablo Fajardo & ​​Sophie Tardy-Joubert</div>
+                            <p class="book-description">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</p>
+                            <button class="buy-button" data-button-id="9">Buy</button>
+                            <img src="./assets/images/book9.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="10">Let My People Go Surfing</p>
+                            <div class="book-author" data-author-name-id="10">By Yvon Chouinard</div>
+                            <p class="book-description">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
+                            <button class="buy-button" data-button-id="10">Buy</button>
+                            <img src="./assets/images/book10.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="11">The Octopus Museum: Poems</p>
+                            <div class="book-author" data-author-name-id="11">By Brenda Shaughnessy</div>
+                            <p class="book-description">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
+                            <button class="buy-button" data-button-id="11">Buy</button>
+                            <img src="./assets/images/book11.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="12">Shark Dialogues: A Novel</p>
+                            <div class="book-author" data-author-name-id="12">By Kiana Davenport</div>
+                            <p class="book-description">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
+                            <button class="buy-button" data-button-id="12">Buy</button>
+                            <img src="./assets/images/book12.png" alt="Book Image" class="book-image">
+                        </div>
+                    </div>
+
+                    <div class="book-list autumn hidden">
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="13">Casual Conversation</p>
+                            <div class="book-author" data-author-name-id="13">By Renia White</div>
+                            <p class="book-description">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity. </p>
+                            <button class="buy-button" data-button-id="13">Buy</button>
+                            <img src="./assets/images/book13.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="14">The Great Fire</p>
+                            <div class="book-author" data-author-name-id="14">By Lou Ureneck</div>
+                            <p class="book-description">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide </p>
+                            <button class="buy-button" data-button-id="14">Buy</button>
+                            <img src="./assets/images/book14.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="15">Rickey: The Life and Legend</p>
+                            <div class="book-author" data-author-name-id="15">By Howard Bryant</div>
+                            <p class="book-description">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson.</p>
+                            <button class="buy-button" data-button-id="15">Buy</button>
+                            <img src="./assets/images/book15.png" alt="Book Image" class="book-image">
+                        </div>
+
+                        <div class="book right-book">
+                            <h3 class="book-title">Staff Picks</h3>
+                            <hr class="book-divider">
+                            <p class="book-name" data-book-name-id="16">Slug: And Other Stories</p>
+                            <div class="book-author" data-author-name-id="16">By Megan Milks</div>
+                            <p class="book-description">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</p>
+                            <button class="buy-button" data-button-id="16">Buy</button>
+                            <img src="./assets/images/book16.png" alt="Book Image" class="book-image">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="modal-buy-card" id="modalByCard">
+                    <div class="top-title-buy-card">
+                        <h3 class="title-buy-card">Buy a library card</h3>
+                        <div class="close-button-buy-card" id="closeModalByCard">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                                <path d="M2 16.8507L17 2" stroke="white" stroke-width="3"/>
+                                <path d="M2 2.14929L17 17" stroke="white" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="modal-buy-card-content-wrapper" >
+                        <div class="form-buy-card">
+                            <p class="text-form-item">Bank card number</p>
+                            <input type="text" id="cardNumberInput">
+                            <div class="code-card-buy">
+                            <p class="text-form-item">Expiration code</p>
+                            <input type="text" id="expirationCodeInput1">
+                            <input type="text" id="expirationCodeInput2">
+                            <p class="text-form-item">CVC</p>
+                            <input type="text" id="cvcInput">
+                            </div>
+                            <p class="text-form-item">Cardholder name</p>
+                            <input type="text" id="cardholderNameInput">
+                            <p class="text-form-item">Postal code</p>
+                            <input type="text" id="postalCodeInput">
+                            <p class="text-form-item">City / Town</p>
+                            <input type="text" id="cityInput">
+                            <div class="button-buy-card-wrapper">
+                            <button class="button-form-buy-card">Buy</button>
+                            <p class="form-buy-card-price">$ 25.00</p>
+                            </div>
+                        </div>
+                        <div class="buy-card-content">
+                            <p class="buy-card-content-text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+
+            <section class="coffee-shop-section" id="coffee-shop">
+                <div class="coffee-shop-content">
+                    <h2 class="coffee-shop-title">Coffee Shop</h2>
+                    <hr class="coffee-shop-divider">
+                    <p class="coffee-shop-description">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. 
+                        You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
+                    
+                    
+                  <div class="price-blocks">
+                    <div class="price-block">
+                        <h3 class="price-block-title">Coffee & Tea</h3>
+                        <div class="price-item">
+                            <p class="item-name">Cold Brew Coffee</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$3</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">French Press Pot</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$5</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Espresso</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$2</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Cappuccino</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$4</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Hot tea</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$2</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Cold tea</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$2</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="price-block">
+                        <h3 class="price-block-title">Desserts & Cakes</h3>
+                        <div class="price-item">
+                            <p class="item-name">Forest Gateau</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$16</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Blue Moon</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$16</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Truffle Cake</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$15</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Chocolate Cake</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$18</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Poet's Dream Cake</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$16</p>
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <p class="item-name">Pineapple Cake</p>
+                            <div class="wrapper-price">
+                            <hr class="item-divider">
+                            <p class="item-price">$14</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            
+            
+            <section class="contacts-section" id="contacts">
+                <div class="contacts-content">
+                    <h2 class="contacts-title">Our Contacts</h2>
+                    <hr class="contacts-divider">
+                    
+                  <div class="contacts-blocks">
+                    <div class="contacts-block">
+                        <h3 class="contacts-subtitle">For all Library inquiries:</h3>
+                        <p class="contacts-line1">Please call <a href="tel:(617)730-2370">(617) 730-2370</a></p>
+                        <p class="contacts-line">For TTY service, please call <a href="tel:(617)730-2370">(617) 730-2370</a></p>
+                        <p class="contacts-line">Putterham Library: <a href="tel:(617)730-2385">(617) 730-2385</a></p>
+
+                        <h3 class="contacts-subtitle2">Senior Staff</h3>
+                        <p class="contacts-line">Library Director: <a href="mailto:AmandaHirst@gmail.com" class="contacts-highlight">Amanda Hirst</a></p>
+                    </div>
+                    
+                    <div class="map-block">
+                       <img class="map-image" src="./assets/images/map.png" alt="Map"> 
+                    </div>
+                  </div>
+                </div>
+            </section>
+            
+
+            <section class="digital-library-cards-section" id="library-cards">
+                <div class="digital-library-cards-content">
+                    <h2 class="digital-library-cards-title">Digital Library Cards</h2>
+                    <hr class="digital-library-cards-divider">
+                    
+                  <div class="cards-blocks">
+                    <div class="card-block">
+                        <div class="card-title-block">
+                        <h3 class="card-subtitle " id="cardSubtitle">Find your Library card</h3>
+                        <h3 class="card-subtitle card-block-nonactive" id="cardSubtitle2">Your Library card</h3>
+                        </div>
+                        <div class="card-form-blocks">
+                          <div class="card-form-block">
+                            <p class="cards-text">Brooklyn Public Library</p>
+                            <div class="card-input-block">
+                                <input type="text" placeholder="Reader's name" id="readerNameInput1">
+                            </div>
+                            <div class="card-input-block">
+                                <input type="text" placeholder="Card number" id="cardNumberInput1">
+                            </div>
+                          </div>
+                            <button class="card-button " id="cardButton">Check the card</button>
+                            <div class="cards-profile cards-profile-auth card-block-nonactive" id="cardsProfileDigital">
+                                <div class="cards-info cards-info-auth  visits-info">
+                                    <p class="card-profile-text auth-cards-text">visits</p>
+                                    <div class="card-profile-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76143 15.5 5C15.5 2.23857 13.2614 0 10.5 0C7.73857 0 5.5 2.23857 5.5 5C5.5 7.76143 7.73857 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5H0.5C0.5 18.3478 1.55357 15.8043 3.42894 13.9289C5.30429 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+                                        </svg>
+                                    </div>
+                                    <p class="card-frofile-counter visits-counter visits-counter-auth" id="visitsCounter">23</p>
+                                </div>
+                                <div class="cards-info cards-info-auth  bonuses-info">
+                                    <p class="card-profile-text auth-cards-text">bonuses</p>
+                                    <div class="card-profile-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                            <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+                                        </svg>
+                                    </div>
+                                    <p class="card-frofile-counter bonuses-counter">1240</p>
+                                </div>
+                                <div class="cards-info cards-info-auth  book-info">
+                                    <p class="card-profile-text auth-cards-text">Books</p>
+                                    <div class="card-profile-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                            <rect width="20" height="21" fill="#BB945F"/>
+                                            <rect x="2" width="1" height="19" fill="#826844"/>
+                                            <rect x="1" width="1" height="21" fill="white"/>
+                                        </svg>
+                                    </div>
+                                    <p class="card-frofile-counter book-counter books-counter-auth" id="booksCounter">2</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
+                    <div class="access-block">
+                        <h4 class="access-subtitle " id="accessSubtitle">Get a reader card</h4>
+                        <h4 class="access-subtitle card-block-nonactive" id="accessSubtitle2">Visit your profile</h4>
+                        <p class="access-text " id="accessText">You will be able to see a reader card after logging into account or you can register a new account</p>
+                        <p class="access-text card-block-nonactive" id="accessText2">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+                        <div class="access-buttons " id="accessButtons">
+                        <button class="access-button" id="registerButton2">Sign Up</button>
+                        <button class="access-button" id="loginButton2">Log in</button>
+                        </div>
+                        <div class="access-buttons card-block-nonactive" id="accessButtons2">
+                            <button class="access-button" id="MyProfile2">Profile</button>
+                            </div>
+                    </div>
+                  </div>
+                </div>
+            </section>  
+            
+        
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+        <div class="footer-contant">
+        <div class="footer-block">
+            
+            <p class="adress">
+                <a href="https://www.google.com/maps/search/286+Cadman+Plaza,+New+York,+NY+11238,+United+States" target="_blank">
+                  286 Cadman Plaza, New York, NY 11238, United States
+                </a>
+              </p>
+              
+        
+            <div class="social-media">
+                <ul class="footer-list">
+                <li><a href="#"><img src="./assets/images/twitter.png" alt="twitter"></a></li>
+                <li><a href="#"><img src="./assets/images/instagram.png" alt="instagram"></a></li>
+                <li><a href="#"><img src="./assets/images/facebook.png" alt="facebook"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-block">
+            <div class="working-hours">
+                <div class="weekday">
+                    <p class="weekday-text">Mon - Fri</p>
+                    <p class="weekday-text">08:00 am - 07:00 pm</p>
+                </div>
+                <div class="weekend">
+                    <p class="weekday-text">Sat - Sun</p>
+                    <p class="weekday-text">10:00 am - 06:00 pm</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-copy-block">
+                <p class="year">2023</p>
+                <a class="footer-link" href="https://rs.school/js-stage0/">The Rolling Scopes School</a>
+                <a class="footer-link" href="https://github.com/asdementeva">asdementeva</a>
+        </div>
+        </div>
+    </footer> 
+    <!-- <script src="nav.js"></script> -->
+    <script src="burger-menu.js"></script>
+    <script src="profile-menu-no-auth.js"></script>
+    <script src="register.js"></script>
+    <script src="login.js"></script>
+    <script src="profile-menu-auth.js"></script>
+    <script src="modal-profile.js"></script>
+    <script src="slider.js"></script>
+    <script src="books.js"></script>
+    <script src="buy-book.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
